@@ -1,0 +1,12 @@
+<br>
+<br>
+<br>
+<br>
+
+<button  *ngFor= "let agency of agencies" type="button" class="btn btn-secondary btn-lg btn-block" (click)="goToTable(agency.agencyId)">{{agency.agencyName}}</button>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise" [fullScreen]="false">
+    <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+
+
