@@ -1,55 +1,55 @@
 <br>
 <br>
 <br>
-<form [formGroup]="billForm">
-    <div class="form-group">
-        <label>Select Agency</label>
-        <select class="form-control" formControlName="agencyName">
-            <option disabled selected value> -- select an option -- </option>
-            <option *ngFor="let agency of agencies">{{agency.agencyName}}</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Bill Date</label>
-        <input type="date" class="form-control" formControlName="billDate">
-    </div>
-
-    <div class="form-group">
-        <label>Bill Number</label>
-        <input type="number" class="form-control" formControlName="billNumber">
-    </div>
-
-    <div class="form-group">
-        <label>Total Amount</label>
-        <div class="input-group-prepend">
-            <span class="input-group-text">&#8377;</span>
-            <input type="number" class="form-control" formControlName="amount">
+<form [formGroup]="billForm" class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <label>Select Agency</label>
+            <select class="form-control" formControlName="agencyName">
+                <option disabled selected value> -- select an option -- </option>
+                <option *ngFor="let agency of agencies">{{agency.agencyName}}</option>
+            </select>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Payment</label>
-        <div class="input-group-prepend">
-            <span class="input-group-text">&#8377;</span>
-            <input type="number" class="form-control" formControlName="payment">
+        <div class="form-group">
+            <label>Bill Date</label>
+            <input type="date" class="form-control" formControlName="billDate">
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Receipt Number</label>
-        <div class="input-group-prepend">
-            <input type="number" class="form-control" formControlName="receiptNo">
+        <div class="form-group">
+            <label>Bill Number</label>
+            <input type="number" class="form-control" formControlName="billNumber">
         </div>
+
+        <div class="form-group">
+            <label>Total Amount</label>
+            <div class="input-group-prepend">
+                <span class="input-group-text">&#8377;</span>
+                <input type="number" class="form-control" formControlName="amount">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Payment</label>
+            <div class="input-group-prepend">
+                <span class="input-group-text">&#8377;</span>
+                <input type="number" class="form-control" formControlName="payment">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Receipt Number</label>
+            <div class="input-group-prepend">
+                <input type="number" class="form-control" formControlName="receiptNo">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Payment Date</label>
+            <input type="date" class="form-control" formControlName="paymentDate">
+        </div>
+        <button type="button" class="btn btn-secondary btn-md" (click)="onSubmit()">Save</button>
     </div>
-
-    <div class="form-group">
-        <label>Payment Date</label>
-        <input type="date" class="form-control" formControlName="paymentDate">
-    </div>
-
-    <button type="button" class="btn btn-secondary btn-md" (click)="onSubmit()">Save</button>
-
 </form>
 
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise" [fullScreen]="false">

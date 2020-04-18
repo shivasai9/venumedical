@@ -1,11 +1,12 @@
 <br>
 <br>
 <br>
-<form [formGroup]="addAgencyForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label>Agency Name</label>
-        <input type="string" class="form-control" formControlName="agencyName">
+<form [formGroup]="addAgencyForm" class="card" (ngSubmit)="onSubmit()">
+    <div class="card-body">
+        <div class="form-group">
+            <label>Agency Name</label>
+            <input type="string" class="form-control" formControlName="agencyName">
+        </div>
+        <button [disabled]="!addAgencyForm.valid" type="submit" class="btn btn-secondary btn-md">Save</button>
     </div>
-
-    <button [disabled]="!addAgencyForm.valid" type="submit" class="btn btn-secondary btn-md">Save</button>
 </form>
