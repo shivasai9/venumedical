@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,9 @@ import { BillFormComponent } from './bill-form/bill-form.component';
 import { TableComponent } from './table/table.component';
 import { AddAgencyComponent } from './add-agency/add-agency.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { LoginHelper } from './loginHelper.service';
+import { CodeConverterComponent } from './code-converter/code-converter.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAP8GVKMJ4zxCoA45tTf8b7cToubs_1sHk",
@@ -32,7 +36,9 @@ const firebaseConfig = {
     HomeComponent,
     BillFormComponent,
     TableComponent,
-    AddAgencyComponent
+    AddAgencyComponent,
+    LoginComponent,
+    CodeConverterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +46,11 @@ const firebaseConfig = {
     ReactiveFormsModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AngularFirestore],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [AngularFirestore, LoginHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

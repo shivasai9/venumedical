@@ -34,10 +34,12 @@ export class TableComponent implements OnInit {
     });
   }
   deleteBillRecord(data) {
-    this.totalAmount = 0;
-    this.paidAmount = 0;
-    this.balanceAmount = 0;
-    this.dataService.deleteBillRecord(this.agencyId, data.billId);
+    if (confirm('are you sure want to delete ???')) {
+      this.totalAmount = 0;
+      this.paidAmount = 0;
+      this.balanceAmount = 0;
+      this.dataService.deleteBillRecord(this.agencyId, data.billId);
+    }
   }
   sortByDate(billData) {
     this.billData = billData.sort((billData1, billData2) => {

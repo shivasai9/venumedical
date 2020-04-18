@@ -5,19 +5,24 @@ import { HomeComponent } from './home/home.component';
 import { BillFormComponent } from './bill-form/bill-form.component';
 import { TableComponent } from './table/table.component';
 import { AddAgencyComponent } from './add-agency/add-agency.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './loginGuard.service';
+import { CodeConverterComponent } from './code-converter/code-converter.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   {
     path: '',
-    redirectTo: '/home', pathMatch: 'full'
+    redirectTo: '/login', pathMatch: 'full'
   },
-  { path: 'agencies', component: AgenciesComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [LoginGuard] },
+  { path: 'agencies', component: AgenciesComponent, canActivate: [LoginGuard] },
   { path: 'billForm', component: BillFormComponent },
-  { path: 'table', component: TableComponent },
-  { path: 'add-agency', component: AddAgencyComponent },
-  { path: '**', component: HomeComponent },
+  { path: 'table', component: TableComponent, canActivate: [LoginGuard] },
+  { path: 'add-agency', component: AddAgencyComponent, canActivate: [LoginGuard] },
+  { path: 'code-converter', component: CodeConverterComponent, canActivate: [LoginGuard] },
+  { path: '**', component: LoginComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

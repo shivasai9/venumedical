@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { DataService } from '../data.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-bill-form',
@@ -15,12 +16,12 @@ export class BillFormComponent implements OnInit {
     agencyName: new FormControl(''),
     billDate: new FormControl(''),
     billNumber: new FormControl(''),
-    amount: new FormControl(''),
-    payment: new FormControl(''),
+    amount: new FormControl(0),
+    payment: new FormControl(0),
     receiptNo: new FormControl(''),
     paymentDate: new FormControl(''),
   });
-  constructor(private dataService: DataService, private spinner: NgxSpinnerService) { }
+  constructor(private dataService: DataService, private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -52,6 +53,8 @@ export class BillFormComponent implements OnInit {
       receiptNo: '',
       paymentDate: ''
     });
+    alert('data saved successfully....');
+    this.router.navigate(['/agencies']);
   }
   getAgencyId(agencyName) {
     return this.agencies.filter(agencyData => {

@@ -7,5 +7,5 @@
         <input type="string" class="form-control" formControlName="agencyName">
     </div>
 
-    <button type="submit" class="btn btn-secondary btn-md">Save</button>
+    <button [disabled]="!addAgencyForm.valid" type="submit" class="btn btn-secondary btn-md">Save</button>
 </form>

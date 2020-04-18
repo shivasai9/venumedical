@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<div [formGroup]="codeConverterForm" class="card">
+    <div class="card-header">
+        <div class="form-group">
+            <label class="radio-inline" class="middle"><input type="checkbox" formControlName="rupeesToCode">&nbsp;&nbsp;Rupees to
+                code</label>
+            <label class="radio-inline" class="radio-right"><input type="checkbox" formControlName="codeToRupees">&nbsp;&nbsp;Code
+                to Rupees</label>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div *ngIf="rupeesToCode" class="form-group">
+            <label>Rupees</label>
+            <div class="input-group-prepend">
+                <span class="input-group-text"> &#8377;</span>
+                <input type="number" class="form-control" formControlName="rupees">
+            </div>
+        </div>
+        <div *ngIf="codeToRupees" class="form-group">
+            <label>Code</label>
+            <div class="input-group-prepend">
+                <input type="text" class="form-control" formControlName="code">
+            </div>
+        </div>
+        <button class="btn btn-secondary btn-md" type="button" (click)="onConvert()"
+            [disabled]="!codeConverterForm.valid">
+            Convert
+        </button>
+    </div>
+    <div *ngIf="showResult" class="card-footer">
+        <p *ngIf="rupeesToCode" class="card-text"> code: {{finalCode}}</p>
+        <p *ngIf="codeToRupees" class="card-text"> Rupees: &#8377;.{{finalRupees}}</p>
+    </div>
+</div>

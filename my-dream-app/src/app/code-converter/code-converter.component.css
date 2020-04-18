@@ -1,0 +1,14 @@
+.radio-right{
+    float: right;
+    margin: 0;
+}
+.card-header{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+input[type='checkbox'] { transform: scale(2);
+}
+
+.middle{
+    margin: 0;
+}
